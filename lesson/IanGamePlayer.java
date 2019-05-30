@@ -1,29 +1,23 @@
 package jp.co.tafs.lesson;
 
+import java.util.List;
+
 public class IanGamePlayer {
 	public static void main(String[] args) {
 		boolean bl;
-		String gameSoft;
+		List<String> gameSoft;
 		String SGM;
 		int num;
 
 		SuperGameMachine sgm = new SuperGameMachine();
-		SGM = sgm.getGameMashine();
-		System.out.println(SGM);
-
-		SGM = sgm.getGameMaker();
-		System.out.println(SGM);
-
-		SGM = sgm.getInternet();
-		System.out.println(SGM);
-
-		SGM = sgm.getReleaseDate();
-		System.out.println(SGM);
-
-		num = sgm.getPrice();
-		System.out.println(num);
+		System.out.println(sgm.getGameMashine());
+		System.out.println(sgm.getGameMaker());
+		System.out.println(sgm.getInternet());
+		System.out.println(sgm.getReleaseDate());
+		System.out.println(sgm.getPrice());
 
 		Game gameplay = new Game();
+		Game2 game2 = new Game2();
 
 		bl = gameplay.powerCheck();
 
@@ -35,16 +29,19 @@ public class IanGamePlayer {
 			System.out.println("電源はすでにONです");
 		}
 
-		gameSoft = gameplay.activeGame();
+		game2.softIn();
 
-		if (gameSoft == null) {
-			gameplay.softIn(gameSoft);
+		gameSoft = game2.gameList();
+
+		System.out.println("インストールしたゲーム機の一覧を表示します");
+
+		for (int i = 0; i < gameSoft.size(); i++) {
+			System.out.println(gameSoft.get(i));
 		}
-		else {
-			System.out.println(gameSoft + "が入っています");
-		}
-		if (gameSoft != null) {
-			gameplay.GamePlay(gameSoft);
-		}
+
+		game2.softChoose();
+
+		gameplay.GamePlay();
+
 	}
 }

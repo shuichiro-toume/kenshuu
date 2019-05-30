@@ -9,8 +9,8 @@ public class Game {
 	boolean powerstate = false;
 	Scanner sc = new Scanner(System.in);
 
-	public void GamePlay(String d) {
-		System.out.println(d + "で遊びましょう！");
+	public void GamePlay() {
+		System.out.println("ゲームで遊びましょう！");
 	}
 
 	public boolean powerCheck() {
@@ -54,7 +54,7 @@ public class Game {
 
 		System.out.println(str + "を入れました");
 
-		GamePlay(str);
+		GamePlay();
 	}
 
 	public void softOut() {
